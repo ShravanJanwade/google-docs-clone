@@ -435,7 +435,6 @@ const ToolbarButton = ({
 
 export const Toolbar = () => {
     const { editor } = useEditorStore();
-    console.log("Toolbar editor:", editor)
     const sections: {
         label: string;
         icon: LucideIcon;
