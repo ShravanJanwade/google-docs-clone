@@ -12,6 +12,8 @@ import TableRow from '@tiptap/extension-table-row'
 import { useEditorStore } from '@/store/use-editor-store'
 import Underline from '@tiptap/extension-underline'
 import FontFamily from '@tiptap/extension-font-family'
+import Highlight from '@tiptap/extension-highlight'
+import { Color } from '@tiptap/extension-color'
 import TextStyle from '@tiptap/extension-text-style'
 export const Editor=()=>{
   const {setEditor}=useEditorStore();
@@ -49,6 +51,10 @@ export const Editor=()=>{
         extensions:[StarterKit,
           FontFamily,
           TextStyle,
+          Highlight.configure({
+            multicolor:true,
+          }),
+          Color,
             TaskList,
             TaskItem.configure({
               nested: true,
