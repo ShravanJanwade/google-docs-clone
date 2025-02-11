@@ -1,6 +1,7 @@
 'use client'
 import {useEditor,EditorContent} from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import Link from '@tiptap/extension-link'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
 import Table from '@tiptap/extension-table'
@@ -55,6 +56,11 @@ export const Editor=()=>{
             multicolor:true,
           }),
           Color,
+          Link.configure({
+            openOnClick:false,
+            autolink:true,
+            defaultProtocol:"https"
+          }),
             TaskList,
             TaskItem.configure({
               nested: true,

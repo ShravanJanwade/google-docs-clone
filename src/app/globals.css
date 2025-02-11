@@ -88,6 +88,15 @@ body {
 }
 
 .tiptap{
+    /* Link styles */
+    a {
+      @apply text-blue-600;
+      cursor: pointer;
+  
+      &:hover {
+       @apply underline
+      }
+    }
    /* List styles */
    ul, 
    ol {
@@ -241,11 +250,14 @@ body {
       outline: 3px solid var(--primary);
     }
   }
-  
+
   mark {
     background-color: #FAF594;
     border-radius: 0.4rem;
     box-decoration-break: clone;
     padding: 0.1rem 0.3rem;
   }
+
+
+
 }
