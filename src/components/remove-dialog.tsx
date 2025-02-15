@@ -13,7 +13,7 @@ import { AlertDialog,
     AlertDialogCancel, } from "./ui/alert-dialog"
 import { api } from "../../convex/_generated/api";
 import { useState } from "react";
-
+import {toast} from 'sonner'
 interface RemoveDialogProps{
     documentId: Id<"documents">;
     children: React.ReactNode;
@@ -40,7 +40,10 @@ export const RemoveDialog=({documentId,children}:RemoveDialogProps)=>{
                     <AlertDialogAction disabled={isRemoving} onClick={(e)=>{
                         e.stopPropagation();
                         setIsRemoving(true);
-                        remove({id:documentId}).finally(()=>setIsRemoving(false))
+                        remove({id:documentId}).
+                        then(()=>toast.success('Document deleted successfully')).
+                        catch((error)=>toast.error("Something went wrong")).
+                        finally(()=>setIsRemoving(false))
                     }}>
                         Delete
                     </AlertDialogAction>
