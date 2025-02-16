@@ -122,13 +122,11 @@ export const updateByID = mutation({
         // If the document belongs to an organization
         if (document.organizationId) {
             if (!isOrganizationMember || !isOrganizationAdmin) {
-                console.log('organization error',document.organizationRole,{user})
                 throw new ConvexError("Unauthorized");
             }
         } else {
             // If it's not an organization document, only the owner can update it
             if (!isOwner) {
-                console.log('personal error')
                 throw new ConvexError("Unauthorized");
             }
         }
