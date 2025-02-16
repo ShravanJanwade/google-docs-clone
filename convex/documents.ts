@@ -79,8 +79,8 @@ export const removeByID = mutation({
         }
 
         const isOwner = document.ownerId === user.subject;
-        const isOrganizationMember = document.organizationId === organizationId;
-        const isOrganizationAdmin = user.organization_role === isAdminRole;
+        const isOrganizationMember = document.organizationId && document.organizationId === organizationId;
+        const isOrganizationAdmin = user.organization_role && user.organization_role === isAdminRole;
 
         if (document.organizationId) {
             if (!isOrganizationMember || !isOrganizationAdmin) {
@@ -116,8 +116,8 @@ export const updateByID = mutation({
         }
 
         const isOwner = document.ownerId === user.subject;
-        const isOrganizationMember = document.organizationId === organizationId;
-        const isOrganizationAdmin = user.organization_role === isAdminRole;
+        const isOrganizationMember = document.organizationId && document.organizationId === organizationId;
+        const isOrganizationAdmin = user.organization_role && user.organization_role === isAdminRole;
 
         // If the document belongs to an organization
         if (document.organizationId) {
@@ -135,3 +135,13 @@ export const updateByID = mutation({
     }
 });
 
+export const getById=query({
+    args:{id:v.id("documents")},
+    handler: async (ctx,{id})=>{
+        const document=await ctx.db.get(id);
+        if(!document){
+            throw new ConvexError("Document not found")
+        }
+        return document;
+    }
+})
