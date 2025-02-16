@@ -8,6 +8,7 @@ import { BoldIcon, FileIcon, FileJsonIcon, FilePenIcon, FilePlusIcon, FileTextIc
 import { BsFilePdf } from 'react-icons/bs';
 import { useEditorStore } from '@/store/use-editor-store';
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
+import { Avatars } from './avatars';
 const FileMenu = () => {
     const { editor } = useEditorStore();
     const onDownload = (blob: Blob, filename: string) => {
@@ -143,6 +144,7 @@ export const Navbar = () => {
                 </div>
             </div>
             <div className='flex gap-3 items-center'>
+                <Avatars/>
             <OrganizationSwitcher
              afterLeaveOrganizationUrl='/' 
              afterCreateOrganizationUrl='/'
