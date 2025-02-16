@@ -98,7 +98,7 @@ const ErrorPage = ({ error, reset }: { error: Error & { digest?: string }; reset
         animate={{ y: [0, 3, 0] }}
         transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
       >
-        Click "Try Again" or "Go Home" to escape! 🚀
+        Click &quot;Try Again&quot; or &quot;Go Home&quot; to escape! 🚀
       </motion.div>
     </div>
   );

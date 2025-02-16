@@ -50,7 +50,6 @@ export const get = query({
         throw new ConvexError("Unauthorized");
     }
     const organizationId= (user.organization_id ?? undefined) as | string | undefined;
-    console.log({user})
     if(search && organizationId){
         return await ctx.db
         .query("documents")
@@ -107,7 +106,6 @@ export const removeByID = mutation({
             }
         } else {
             if (!isOwner) {
-                console.log('personal error')
                 throw new ConvexError("Unauthorized");
             }
         }

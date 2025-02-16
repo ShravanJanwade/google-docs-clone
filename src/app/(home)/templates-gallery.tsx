@@ -26,7 +26,7 @@ export const TemplatesGallery = () => {
                 router.push(`/documents/${documentId}`)
             }
         ).then(()=>toast.success("Document created Successfully"))
-        .catch((e)=>toast.error("Could not create a document")).
+        .catch(()=>toast.error("Could not create a document")).
         finally(()=>{
             setIsCreating(false)
         })
@@ -50,7 +50,7 @@ export const TemplatesGallery = () => {
                                                 backgroundRepeat: "no-repeat"
                                             }}
                                             disabled={isCreating}
-                                            onClick={()=>onTemplateClick(template.label,"")}
+                                            onClick={()=>onTemplateClick(template.label,template.initialContent)}
                                             className='size-full hover:border-blue-500 rounded-sm border hover:bg-blue-50 transition flex flex-col items-center justify-center gap-y-4 bg-white'
                                         />
 
